@@ -103,7 +103,7 @@ core = {'': ['absdiff', 'add', 'addWeighted', 'bitwise_and', 'bitwise_not', 'bit
              'solve', 'solvePoly', 'split', 'sqrt', 'subtract', 'trace', 'transform', 'transpose', 'vconcat'],
         'Algorithm': []}
 
-imgproc = {'': ['Canny', 'GaussianBlur', 'Laplacian', 'HoughLines', 'HoughLinesP', 'HoughCircles', 'Scharr','Sobel', \
+imgproc = {'': ['cornerSubPix','Canny', 'GaussianBlur', 'Laplacian', 'HoughLines', 'HoughLinesP', 'HoughCircles', 'Scharr','Sobel', \
                 'adaptiveThreshold','approxPolyDP','arcLength','bilateralFilter','blur','boundingRect','boxFilter',\
                 'calcBackProject','calcHist','circle','compareHist','connectedComponents','connectedComponentsWithStats', \
                 'contourArea', 'convexHull', 'convexityDefects', 'cornerHarris','cornerMinEigenVal','createCLAHE', \
@@ -128,6 +128,8 @@ video = {'': ['CamShift', 'calcOpticalFlowFarneback', 'calcOpticalFlowPyrLK', 'c
 dnn = {'dnn_Net': ['setInput', 'forward'],
        '': ['readNetFromCaffe', 'readNetFromTensorflow', 'readNetFromTorch', 'readNetFromDarknet', 'blobFromImage']}
 
+calib3D = {'' : ['findChessboardCorners', 'solvePnPRansac', 'drawChessboardCorners', 'Rodrigues']}
+
 def makeWhiteList(module_list):
     wl = {}
     for m in module_list:
@@ -138,7 +140,7 @@ def makeWhiteList(module_list):
                 wl[k] = m[k]
     return wl
 
-white_list = makeWhiteList([core, imgproc, objdetect, video, dnn])
+white_list = makeWhiteList([core, imgproc, objdetect, video, dnn, calib3D])
 
 # Features to be exported
 export_enums = False
