@@ -71,6 +71,8 @@
 #include "opencv2/core.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/calib3d.hpp"
+#include "opencv2/aruco.hpp"
+#include "opencv2/aruco/charuco.hpp"
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/video/background_segm.hpp"
 #include "opencv2/objdetect.hpp"
@@ -81,6 +83,7 @@
 using namespace emscripten;
 using namespace cv;
 using namespace dnn;
+using namespace cv::aruco;
 
 namespace binding_utils
 {

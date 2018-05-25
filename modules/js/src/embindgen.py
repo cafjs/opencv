@@ -130,6 +130,12 @@ dnn = {'dnn_Net': ['setInput', 'forward'],
 
 calib3D = {'' : ['findChessboardCorners', 'solvePnPRansac', 'drawChessboardCorners', 'Rodrigues']}
 
+aruco  = {'' : [ 'getPredefinedDictionary', 'detectMarkers', 'drawDetectedMarkers', 'estimatePoseSingleMarkers', 'drawPlanarBoard'],
+          'Dictionary': ['Dictionary', 'create', 'get'],
+          'DetectorParameters': ['DetectorParameters', 'create'],
+          'Board': ['Board', 'create'],
+          'CharucoBoard':['CharucoBoard', 'create', 'draw']}
+
 def makeWhiteList(module_list):
     wl = {}
     for m in module_list:
@@ -140,7 +146,7 @@ def makeWhiteList(module_list):
                 wl[k] = m[k]
     return wl
 
-white_list = makeWhiteList([core, imgproc, calib3D])
+white_list = makeWhiteList([core, imgproc, calib3D, aruco])
 
 # Features to be exported
 export_enums = False
@@ -161,7 +167,8 @@ type_dict = {
 }
 
 def normalize_class_name(name):
-    return re.sub(r"^cv\.", "", name).replace(".", "_")
+    return re.sub(r"^cv\.[a-zA-Z0-9]*\.|cv\.", "", name).replace(".", "_")
+
 
 
 class ClassProp(object):

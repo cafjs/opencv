@@ -92,6 +92,7 @@ class Builder:
 
     def get_cmake_cmd(self):
         cmd = ["cmake",
+               "-DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules",
                "-DCMAKE_BUILD_TYPE=Release",
                "-DCMAKE_TOOLCHAIN_FILE='%s'" % self.get_toolchain_file(),
                "-DCPU_BASELINE=''",
